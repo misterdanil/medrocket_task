@@ -15,7 +15,7 @@ class Doctor extends StatelessWidget {
         const SizedBox(width: Task1Constants.iconTextMargin),
         Text(
           doctor,
-          style: TextStyle(fontSize: Task1Constants.payloadFontSize),
+          style: const TextStyle(fontSize: Task1Constants.payloadFontSize),
         ),
       ],
     );

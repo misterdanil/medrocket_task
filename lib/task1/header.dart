@@ -7,6 +7,6 @@ class TextHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(textPage, style: TextStyle(fontWeight: FontWeight.w700));
+    return Text(textPage, style: const TextStyle(fontWeight: FontWeight.w700));
   }
 }

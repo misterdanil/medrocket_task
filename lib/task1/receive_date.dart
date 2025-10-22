@@ -5,7 +5,7 @@ import 'package:medrocket_task/task1/task1_colors.dart';
 import 'package:medrocket_task/task1/task1_constants.dart';
 
 class ReceiveDate extends StatelessWidget {
-  DateTime dateTimeReceive;
+  final DateTime dateTimeReceive;
 
   ReceiveDate(this.dateTimeReceive, {Key? key}) : super(key: key);
 
@@ -20,7 +20,7 @@ class ReceiveDate extends StatelessWidget {
           children: [
             Text(
               "$_day $_month ($_dayOfWeek), $_time",
-              style: TextStyle(fontSize: Task1Constants.payloadFontSize),
+              style: const TextStyle(fontSize: Task1Constants.payloadFontSize),
             ),
             const Text(
               "Дата получения документа",

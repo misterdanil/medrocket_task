@@ -24,7 +24,7 @@ class Clinic extends StatelessWidget {
             ),
             Text(
               clinic.address,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Task1Colors.metadata,
                 fontSize: Task1Constants.metadataPayloadFontSize,
               ),

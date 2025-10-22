@@ -13,7 +13,7 @@ class Patient extends StatelessWidget {
       children: [
         const Icon(Icons.person_2_outlined, color: Task1Colors.icon),
         const SizedBox(width: Task1Constants.iconTextMargin),
-        Text(name, style: TextStyle(fontSize: Task1Constants.payloadFontSize)),
+        Text(name, style: const TextStyle(fontSize: Task1Constants.payloadFontSize)),
       ],
     );
   }

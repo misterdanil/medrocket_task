@@ -1,9 +1,5 @@
 class SurveyEntity {
-  final int _process;
+  final int process;
 
-  SurveyEntity(this._process);
-
-  int get process {
-    return _process;
-  }
+  SurveyEntity(this.process);
 }

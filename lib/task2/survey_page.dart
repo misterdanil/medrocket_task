@@ -4,6 +4,7 @@ import 'package:medrocket_task/task2/blocs/survey_bloc.dart';
 import 'package:medrocket_task/task2/blocs/survey_event.dart';
 import 'package:medrocket_task/task2/blocs/survey_state.dart';
 import 'package:medrocket_task/task2/model/survey_model.dart';
+import 'package:medrocket_task/task2/task2_colors.dart';
 
 class SurveyPage extends StatelessWidget {
   SurveyPage({Key? key}) : super(key: key);
@@ -23,27 +24,33 @@ class SurveyPage extends StatelessWidget {
                     height: 200,
                     width: double.infinity,
                     child: ColoredBox(
-                      color: Colors.black45,
+                      color: Task2Colors.wrapperStatus,
                       child: Center(
-                        child: ColoredBox(
-                          color: Colors.white12,
-                          child: _buildProcessWidget(state),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ColoredBox(
+                            color: Task2Colors.status,
+                            child: _buildProcessWidget(state),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[500],
-                      foregroundColor: Colors.white,
+                      backgroundColor: Task2Colors.buttonBackground,
+                      foregroundColor: Task2Colors.buttonForeground,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
                     ),
                     onPressed: () {
                       BlocProvider.of<SurveyBloc>(
                         context,
                       ).add(FetchSurveyEvent());
                     },
-                    child: Text(
+                    child: const Text(
                       "Получить данные опросника",
                       textAlign: TextAlign.center,
                     ),
@@ -59,17 +66,17 @@ class SurveyPage extends StatelessWidget {
 
   Widget _buildProcessWidget(SurveyState state) {
     if (state is SurveyNotFilledState) {
-      return Text("Опросник ещё не начат", textAlign: TextAlign.center);
+      return const Text("Опросник ещё не начат", textAlign: TextAlign.center);
     } else if (state is SurveyProcessingState) {
-      SurveyEntity questionnaire = state.survey!;
+      SurveyEntity survey = state.survey!;
       return Text(
-        "Процесс заполнения опросника: ${questionnaire.process}%",
+        "Процесс заполнения опросника: ${survey.process}%",
         textAlign: TextAlign.center,
       );
     } else if (state is SurveyFilledState) {
-      return Text("Опросник заполнен", textAlign: TextAlign.center);
+      return const Text("Опросник заполнен", textAlign: TextAlign.center);
     } else {
-      return Text(
+      return const Text(
         "Нет данных о заполнении опросника",
         textAlign: TextAlign.center,
       );

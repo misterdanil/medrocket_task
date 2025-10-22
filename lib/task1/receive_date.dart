@@ -13,16 +13,16 @@ class ReceiveDate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.calendar_today_outlined, color: Task1Colors.icon),
-        SizedBox(width: Task1Constants.iconTextMargin),
+        const Icon(Icons.calendar_today_outlined, color: Task1Colors.icon),
+        const SizedBox(width: Task1Constants.iconTextMargin),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "${getDay()} ${getMonth()} (${getDayOfWeek()}), $_time",
+              "$_day $_month ($_dayOfWeek), $_time",
               style: TextStyle(fontSize: Task1Constants.payloadFontSize),
             ),
-            Text(
+            const Text(
               "Дата получения документа",
               style: TextStyle(
                 color: Task1Colors.metadata,
@@ -35,11 +35,11 @@ class ReceiveDate extends StatelessWidget {
     );
   }
 
-  int getDay() {
+  int get _day {
     return dateTimeReceive.day;
   }
 
-  String getMonth() {
+  String get _month {
     int month = dateTimeReceive.month;
     switch (month) {
       case (1):
@@ -71,7 +71,7 @@ class ReceiveDate extends StatelessWidget {
     }
   }
 
-  String getDayOfWeek() {
+  String get _dayOfWeek {
     int weekday = dateTimeReceive.weekday;
     switch (weekday) {
       case (1):

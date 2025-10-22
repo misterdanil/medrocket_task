@@ -3,7 +3,7 @@ import 'package:medrocket_task/task1/task1_colors.dart';
 import 'package:medrocket_task/task1/task1_constants.dart';
 
 class Patient extends StatelessWidget {
-  String name;
+  final String name;
 
   Patient({Key? key, required this.name}) : super(key: key);
 
@@ -11,8 +11,8 @@ class Patient extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.person_2_outlined, color: Task1Colors.icon),
-        SizedBox(width: Task1Constants.iconTextMargin),
+        const Icon(Icons.person_2_outlined, color: Task1Colors.icon),
+        const SizedBox(width: Task1Constants.iconTextMargin),
         Text(name, style: TextStyle(fontSize: Task1Constants.payloadFontSize)),
       ],
     );

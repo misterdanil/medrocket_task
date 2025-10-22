@@ -36,11 +36,11 @@ class NewDocument extends StatelessWidget {
     required this.doctor,
   }) : super(key: key);
 
-  static const double rootPadding = 16.0;
-  static const double payloadVerticalMargin = 25;
-  static const double buttonRadius = 10;
-  static const double buttonFontSize = 15;
-  static const FontWeight buttonFontWeight = FontWeight.w600;
+  static const double _rootPadding = 16.0;
+  static const double _payloadVerticalMargin = 25;
+  static const double _buttonRadius = 10;
+  static const double _buttonFontSize = 15;
+  static const FontWeight _buttonFontWeight = FontWeight.w600;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class NewDocument extends StatelessWidget {
           // Можно было бы использовать leading для icon, но там отступ слева неконтролируемый. Можно предположить, что там примерно 16,
           // но лучше уж указать точно
           title: Padding(
-            padding: EdgeInsets.symmetric(horizontal: rootPadding),
+            padding: const EdgeInsets.symmetric(horizontal: _rootPadding),
             child: Row(
               children: [
                 IconButton(
@@ -60,15 +60,15 @@ class NewDocument extends StatelessWidget {
                   },
                   icon: const Icon(Icons.arrow_back),
                 ),
-                SizedBox(width: 32),
-                TextHeader(textPage: "Новый документ"),
+                const SizedBox(width: 32),
+                const TextHeader(textPage: "Новый документ"),
               ],
             ),
           ),
           titleSpacing: 0,
           backgroundColor: Task1Colors.headerBackground,
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(1),
+          bottom: const PreferredSize(
+            preferredSize: Size.fromHeight(1),
             child: SizedBox(
               height: 1,
               width: double.infinity,
@@ -77,40 +77,40 @@ class NewDocument extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: rootPadding),
+          padding: const EdgeInsets.symmetric(horizontal: _rootPadding),
           child: Column(
             children: [
-              SizedBox(height: rootPadding),
+              const SizedBox(height: _rootPadding),
               SizedBox(
                 width: double.infinity,
                 child: Image.asset(Task1Images.newDocument, fit: BoxFit.fill),
               ),
-              SizedBox(height: rootPadding),
+              const SizedBox(height: _rootPadding),
               Column(
                 children: [
-                  SizedBox(height: payloadVerticalMargin),
-                  Patient(name: "Ирина"),
-                  SizedBox(height: payloadVerticalMargin),
-                  ReceiveDate(DateTime.parse("2025-05-22 16:00")),
-                  SizedBox(height: 15),
-                  Clinic(name: "Фомина", address: "Бульвар Перервинский, д. 4"),
-                  SizedBox(height: payloadVerticalMargin),
-                  Doctor("Стоматолог"),
+                  const SizedBox(height: _payloadVerticalMargin),
+                  Patient(name: name),
+                  const SizedBox(height: _payloadVerticalMargin),
+                  ReceiveDate(receiveDate),
+                  const SizedBox(height: 15),
+                  Clinic(clinic: clinic),
+                  const SizedBox(height: _payloadVerticalMargin),
+                  Doctor(doctor),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Container(
                 height: 130,
                 decoration: BoxDecoration(
                   color: Task1Colors.info,
                   border: Border.all(color: Colors.transparent, width: 1),
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Stack(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text(
+                      padding: const EdgeInsets.all(12.0),
+                      child: const Text(
                         "Клиника прислала документ после приёма. Чтобы добавить его в медкарту и " +
                             "посмотреть содержание, нужно будет указать дату рождения пациента. Это проверка для безопасности данных.",
                         style: TextStyle(fontSize: 15),
@@ -129,7 +129,7 @@ class NewDocument extends StatelessWidget {
                             width: 4,
                           ),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "\u{1D456}",
                             style: TextStyle(
@@ -157,16 +157,16 @@ class NewDocument extends StatelessWidget {
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(buttonRadius),
+                            borderRadius: BorderRadius.circular(_buttonRadius),
                           ),
                           backgroundColor: Task1Colors.addToCardButton,
                           foregroundColor: Task1Colors.addToCardButtonText,
-                          textStyle: TextStyle(
-                            fontSize: buttonFontSize,
-                            fontWeight: buttonFontWeight,
+                          textStyle: const TextStyle(
+                            fontSize: _buttonFontSize,
+                            fontWeight: _buttonFontWeight,
                           ),
                         ),
-                        child: Text('Добавить в медкарту'),
+                        child: const Text('Добавить в медкарту'),
                       ),
                       ElevatedButton(
                         onPressed: () {
@@ -174,16 +174,16 @@ class NewDocument extends StatelessWidget {
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(buttonRadius),
+                            borderRadius: BorderRadius.circular(_buttonRadius),
                           ),
                           backgroundColor: Task1Colors.removeButton,
                           foregroundColor: Task1Colors.removeButtonText,
-                          textStyle: TextStyle(
-                            fontSize: buttonFontSize,
-                            fontWeight: buttonFontWeight,
+                          textStyle: const TextStyle(
+                            fontSize: _buttonFontSize,
+                            fontWeight: _buttonFontWeight,
                           ),
                         ),
-                        child: Text('Удалить'),
+                        child: const Text('Удалить'),
                       ),
                     ],
                   ),
